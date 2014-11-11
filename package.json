@@ -1,0 +1,47 @@
+{
+  "name": "mapify",
+  "description": "Convert JS objects to ES6 Maps and vice versa",
+  "tags": [
+    "es6",
+    "map",
+    "object",
+    "utility"
+  ],
+  "version": "1.0.0",
+  "author": "jlipps@gmail.com",
+  "licenses": [
+    {
+      "type": "apache-2.0",
+      "url": "https://raw.github.com/jlipps/mapify/master/LICENSE"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jlipps/mapify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jlipps/mapify/issues"
+  },
+  "engines": [
+    "node"
+  ],
+  "main": "./lib/es5/main.js",
+  "bin": {
+  },
+  "directories": {
+    "lib": "./lib/es6"
+  },
+  "dependencies": {
+    "traceur": "~0.0.74"
+  },
+  "scripts": {
+    "test": "$(npm bin)/gulp && $(npm bin)/mocha test/es5/specs.js"
+  },
+  "devDependencies": {
+    "gulp-traceur": "^0.13.0",
+    "gulp": "^3.8.9",
+    "merge-stream": "^0.1.6",
+    "mocha": "^2.0.1",
+    "should": "^4.1.0"
+  }
+}
