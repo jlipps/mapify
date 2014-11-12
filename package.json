@@ -1,5 +1,5 @@
 {
-  "name": "mapify",
+  "name": "es6-mapify",
   "description": "Convert JS objects to ES6 Maps and vice versa",
   "tags": [
     "es6",

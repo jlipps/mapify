@@ -6,13 +6,13 @@ Convert JS Objects to ES6 Maps and vice versa.
 ES6 is really nice for iteration, but it's not so nice for directly referencing properties, the way JS Objects are. This is a nice way to convert back and forth. First, simply use `npm` to include `mapify` in your project's dependencies:
 
 ```
-npm install mapify
+npm install es6-mapify
 ```
 
 Now you can import it and use it like so:
 
 ```js
-import { mapify } from 'mapify';
+import { mapify } from 'es6-mapify';
 
 // converts basic objects
 let myObj = {foo: 'bar'};
