@@ -10,6 +10,7 @@ describe("mapify", () => {
     mapify('hi').should.equal('hi');
     (typeof mapify(undefined)).should.eql('undefined');
     mapify([1, 2, 3]).should.eql([1, 2, 3]);
+    should.ok(mapify(null) === null);
   });
 
   it("should convert an empty object", () => {
