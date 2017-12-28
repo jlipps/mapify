@@ -9,12 +9,7 @@
   ],
   "version": "1.0.0",
   "author": "jlipps@gmail.com",
-  "licenses": [
-    {
-      "type": "apache-2.0",
-      "url": "https://raw.github.com/jlipps/mapify/master/LICENSE"
-    }
-  ],
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/jlipps/mapify.git"
@@ -25,23 +20,29 @@
   "engines": [
     "node"
   ],
-  "main": "./lib/es5/main.js",
-  "bin": {
-  },
+  "main": "./build/lib/main.js",
+  "bin": {},
   "directories": {
     "lib": "./lib/es6"
   },
   "dependencies": {
-    "traceur": "~0.0.74"
+    "babel-runtime": "=5.8.24"
   },
   "scripts": {
-    "test": "$(npm bin)/gulp && $(npm bin)/mocha test/es5/specs.js"
+    "test": "gulp once",
+    "lint": "gulp eslint",
+    "buid": "gulp transpile",
+    "prepublish": "gulp prepublish"
   },
   "devDependencies": {
-    "gulp-traceur": "^0.13.0",
-    "gulp": "^3.8.9",
-    "merge-stream": "^0.1.6",
-    "mocha": "^2.0.1",
-    "should": "^4.1.0"
+    "appium-gulp-plugins": "^2.2.0",
+    "babel-eslint": "^7.1.1",
+    "chai": "^4.1.2",
+    "eslint": "^3.18.0",
+    "eslint-config-appium": "^2.0.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-mocha": "^4.7.0",
+    "eslint-plugin-promise": "^3.3.1",
+    "gulp": "^3.8.9"
   }
 }
