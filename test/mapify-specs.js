@@ -1,8 +1,8 @@
-/* global describe:true, it:true */
+import { mapify, demapify } from '../lib/main';
+import chai from 'chai';
 
-import 'traceur/bin/traceur-runtime';
-import should from 'should';
-import { mapify, demapify } from '../../lib/es5/main';
+
+chai.should();
 
 describe("mapify", () => {
   it("should return a non-object as is", () => {
@@ -10,7 +10,7 @@ describe("mapify", () => {
     mapify('hi').should.equal('hi');
     (typeof mapify(undefined)).should.eql('undefined');
     mapify([1, 2, 3]).should.eql([1, 2, 3]);
-    should.ok(mapify(null) === null);
+    (mapify(null) === null).should.be.true;
   });
 
   it("should convert an empty object", () => {
@@ -39,7 +39,7 @@ describe("mapify", () => {
     a[0].should.equal(1);
     a[2].should.equal(2);
     let m = a[1];
-    should.ok(a[1] instanceof Map);
+    (a[1] instanceof Map).should.be.true;
     m.get('a').should.equal('b');
   });
 
