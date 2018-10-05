@@ -4,8 +4,8 @@ import chai from 'chai';
 
 chai.should();
 
-describe("mapify", () => {
-  it("should return a non-object as is", () => {
+describe("mapify", function () {
+  it("should return a non-object as is", function () {
     mapify(2).should.equal(2);
     mapify('hi').should.equal('hi');
     (typeof mapify(undefined)).should.eql('undefined');
@@ -13,17 +13,17 @@ describe("mapify", () => {
     (mapify(null) === null).should.be.true;
   });
 
-  it("should convert an empty object", () => {
+  it("should convert an empty object", function () {
     let m = mapify({});
     (typeof m.get('foo')).should.equal('undefined');
   });
 
-  it("should convert a basic object", () => {
+  it("should convert a basic object", function () {
     let m = mapify({a: 'b'});
     m.get('a').should.equal('b');
   });
 
-  it("should convert an object with multiple non-object types", () => {
+  it("should convert an object with multiple non-object types", function () {
     let m = mapify({a: 'b', 'foo-bar': 3, c: [1, "x", Array]});
     m.get('a').should.equal('b');
     m.get('foo-bar').should.equal(3);
@@ -34,7 +34,7 @@ describe("mapify", () => {
     (typeof (new c[2]())).should.equal('object');
   });
 
-  it("should convert an array with an embedded object", () => {
+  it("should convert an array with an embedded object", function () {
     let a = mapify([1, {a: 'b'}, 2]);
     a[0].should.equal(1);
     a[2].should.equal(2);
@@ -43,7 +43,7 @@ describe("mapify", () => {
     m.get('a').should.equal('b');
   });
 
-  it("should convert a nested object", () => {
+  it("should convert a nested object", function () {
     let m = mapify({a: {b: [1, {c: 'd'}], e: 'f'}, g: true});
     let a = m.get('a');
     m.get('g').should.equal(true);
@@ -53,27 +53,27 @@ describe("mapify", () => {
 });
 
 
-describe("demapify", () => {
-  it("should return a non-object as is", () => {
+describe("demapify", function () {
+  it("should return a non-object as is", function () {
     demapify(2).should.equal(2);
     demapify('hi').should.equal('hi');
     (typeof demapify(undefined)).should.eql('undefined');
     demapify([1, 2, 3]).should.eql([1, 2, 3]);
   });
 
-  it("should convert an empty map", () => {
+  it("should convert an empty map", function () {
     let m = demapify(new Map());
     m.should.eql({});
     (typeof m.foo).should.equal('undefined');
   });
 
-  it("should convert a basic map", () => {
+  it("should convert a basic map", function () {
     let m = new Map();
     m.set('a', 'b');
     demapify(m).should.eql({a: 'b'});
   });
 
-  it("should convert a map multiple non-object types", () => {
+  it("should convert a map multiple non-object types", function () {
     let m = new Map();
     m.set('a', 'b');
     m.set('foo-bar', 3);
@@ -87,7 +87,7 @@ describe("demapify", () => {
     (typeof (new d.c[2]())).should.equal('object');
   });
 
-  it("should convert an array with an embedded map", () => {
+  it("should convert an array with an embedded map", function () {
     let m = new Map();
     m.set('a', 'b');
     let a = demapify([1, m, 2]);
@@ -96,7 +96,7 @@ describe("demapify", () => {
     a[2].should.equal(2);
   });
 
-  it("should convert a nested object", () => {
+  it("should convert a nested object", function () {
     let m = new Map();
     let m2 = new Map();
     let m3 = new Map();

@@ -25,24 +25,30 @@
   "directories": {
     "lib": "./lib/es6"
   },
+  "files": [
+    "lib",
+    "build/lib"
+  ],
   "dependencies": {
-    "babel-runtime": "=5.8.24"
+    "@babel/runtime": "^7.0.0"
   },
   "scripts": {
+    "clean": "rm -rf node_modules && rm -rf package-lock.json && npm install",
     "test": "gulp once",
     "lint": "gulp eslint",
+    "lint:fix": "gulp eslint --fix",
     "buid": "gulp transpile",
-    "prepublish": "gulp prepublish"
+    "prepare": "gulp prepublish"
   },
   "devDependencies": {
-    "appium-gulp-plugins": "^2.2.0",
-    "babel-eslint": "^7.1.1",
+    "appium-gulp-plugins": "^3.0.0",
+    "babel-eslint": "^10.0.0",
     "chai": "^4.1.2",
-    "eslint": "^3.18.0",
-    "eslint-config-appium": "^2.0.1",
+    "eslint": "^5.2.0",
+    "eslint-config-appium": "3.x",
     "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-mocha": "^4.7.0",
-    "eslint-plugin-promise": "^3.3.1",
-    "gulp": "^3.8.9"
+    "eslint-plugin-mocha": "^5.0.0",
+    "eslint-plugin-promise": "^4.0.0",
+    "gulp": "^4.0.0"
   }
 }
